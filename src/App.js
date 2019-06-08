@@ -1,26 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <MainForm />
     </div>
   );
 }
+
+const MainForm = () => (
+  <div className='container'>
+    <form className='form'>
+      <div className='first-name input'>
+        <label>First Name</label>
+        <input type='text' name='first-name' />
+      </div>
+      <div className='type selection'>
+        <select>
+          <option value='1'>1</option>
+          <option value='1'>2</option>
+          <option value='1'>3</option>
+        </select>
+      </div>
+      <div className='submit'>
+        <button type='submit'>Next</button>
+      </div>
+    </form>
+  </div>
+)
 
 export default App;
