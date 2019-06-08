@@ -1,4 +1,6 @@
 import React from 'react';
+
+import useMainForm from './CustomHooks';
 import './App.css';
 
 function App() {
@@ -8,6 +10,9 @@ function App() {
     </div>
   );
 }
+
+TODO: // use custom hook to manage form
+// https://medium.com/@geeky_writer_/using-react-hooks-to-create-awesome-forms-6f846a4ce57
 
 const MainForm = () => (
   <div className='container'>
