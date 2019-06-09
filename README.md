@@ -10,7 +10,9 @@ TODO ://
 
 [Netlify](https://www.freecodecamp.org/news/how-to-deploy-a-react-application-to-netlify-363b8a98a985/) Deployment Steps
 
-#### Issues
+#### Issues // Bugz
+
+- User has to double click the 'Next' button on SignupForm.js before it will progress
 
 - [gh-pages](https://jkyletreman.github.io/react-composable-forms/) not finding js files 
 
