@@ -33,3 +33,9 @@ example:
       </div>
     </form>
 ```
+```sh
+    # if you want to delay form submission, you cant use a button, that will trigger onSubmit from the form - workaround
+    <div className="submit button">
+        <div onClick={() => props.history.push("/profile")}>Preview</div>
+    </div>
+```
