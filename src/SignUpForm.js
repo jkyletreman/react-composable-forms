@@ -1,10 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./App.css";
 
 const SignUpForm = props => (
   <div className="container border">
-    <form onSubmit={props.handleSubmit}>
+    <div>
       <div>
         <label>Email</label>
         <input
@@ -23,12 +22,10 @@ const SignUpForm = props => (
           onChange={props.handleInputChange}
         />
       </div>
-      <div className="submit">
-        <Link to="/two">
-          <button type="submit">Next</button>
-        </Link>
+      <div className="submit button">
+        <div onClick={() => props.history.push("/two")}>Next</div>
       </div>
-    </form>
+    </div>
   </div>
 );
 

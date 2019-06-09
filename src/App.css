@@ -15,6 +15,11 @@
   border-radius: 5px;
 }
 
+.button {
+  text-align: center;
+  background-color: blueviolet;
+}
+
 .container {
   display: flex;
   align-items: center;

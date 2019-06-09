@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import "./App.css";
 
 const faker = require("faker");
@@ -7,7 +7,7 @@ const avatar = faker.image.avatar(); // https://api.adorable.io/avatars/285/abot
 
 const UserProfileForm = props => (
   <div className="container border">
-    <form onSubmit={props.handleSubmit}>
+    <div>
       <div className="container margin">
         <img
           src={props.inputs.avatar || avatar}
@@ -34,13 +34,11 @@ const UserProfileForm = props => (
           onChange={props.handleInputChange}
         />
       </div>
-      <div className="submit">
-        <Link to="/profile">
-          <button type="submit">Preview</button>
-        </Link>
+      <div className="submit button">
+        <div onClick={() => props.history.push("/profile")}>Preview</div>
       </div>
-    </form>
+    </div>
   </div>
 );
 
-export default UserProfileForm;
+export default withRouter(UserProfileForm);

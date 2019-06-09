@@ -8,7 +8,7 @@ import UserProfileCard from "./UserProfileCard";
 import "./App.css";
 
 function App() {
-  const signup = inputs => {
+  const signup = () => {
     alert(`User Created
       Email: ${inputs.email},
       Username: ${inputs.username},
@@ -17,7 +17,7 @@ function App() {
   };
 
   const { location } = useRouter();
-  const { inputs, handleInputChange, handleSubmit } = useForm(signup); 
+  const { inputs, handleInputChange, handleSubmit } = useForm(signup);
 
   const transitions = useTransition(
     location,
@@ -32,47 +32,49 @@ function App() {
 
   return (
     <div>
-      <div className="container">
-        {transitions.map(({ item, props, key }) => (
-          <animated.div key={key} style={props} className="container">
-            <Switch location={item}>
-              <Route
-                path="/"
-                exact
-                render={props => (
-                  <SignUpForm
-                    {...props}
-                    inputs={inputs}
-                    handleInputChange={handleInputChange}
-                    handleSubmit={handleSubmit}
-                  />
-                )}
-              />
-              <Route
-                path="/two"
-                render={props => (
-                  <UserProfileForm
-                    {...props}
-                    inputs={inputs}
-                    handleInputChange={handleInputChange}
-                    handleSubmit={handleSubmit}
-                  />
-                )}
-              />
-              <Route
-                path="/profile"
-                render={props => (
-                  <UserProfileCard
-                    {...props}
-                    inputs={inputs}
-                    handleInputChange={handleInputChange}
-                    handleSubmit={handleSubmit}
-                  />
-                )}
-              />
-            </Switch>
-          </animated.div>
-        ))}
+      <div>
+        <form onSubmit={handleSubmit} className="container">
+          {transitions.map(({ item, props, key }) => (
+            <animated.div key={key} style={props} className="container">
+              <Switch location={item}>
+                <Route
+                  path="/"
+                  exact
+                  render={props => (
+                    <SignUpForm
+                      {...props}
+                      inputs={inputs}
+                      handleInputChange={handleInputChange}
+                      handleSubmit={handleSubmit}
+                    />
+                  )}
+                />
+                <Route
+                  path="/two"
+                  render={props => (
+                    <UserProfileForm
+                      {...props}
+                      inputs={inputs}
+                      handleInputChange={handleInputChange}
+                      handleSubmit={handleSubmit}
+                    />
+                  )}
+                />
+                <Route
+                  path="/profile"
+                  render={props => (
+                    <UserProfileCard
+                      {...props}
+                      inputs={inputs}
+                      handleInputChange={handleInputChange}
+                      handleSubmit={handleSubmit}
+                    />
+                  )}
+                />
+              </Switch>
+            </animated.div>
+          ))}
+        </form>
       </div>
     </div>
   );
