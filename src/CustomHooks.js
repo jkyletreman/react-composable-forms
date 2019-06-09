@@ -6,12 +6,13 @@ import { __RouterContext } from 'react-router-dom'
         their name should start with “use”.
 */
 
-// NAvigation + Transitions https://codesandbox.io/embed/jp1wr1867w
+// Navigation + Transitions https://codesandbox.io/embed/jp1wr1867w
 const useRouter = () => {
   return useContext(__RouterContext)
 }
 
 
+// useForm --> https://medium.com/@geeky_writer_/using-react-hooks-to-create-awesome-forms-6f846a4ce57
 // callback - whenever the user submits the form.
 const useForm = callback => {
     // object of inputs, inputName: inputValue
@@ -48,5 +49,3 @@ const useForm = callback => {
 };
 
 export { useForm, useRouter };
-
-// useForm --> https://medium.com/@geeky_writer_/using-react-hooks-to-create-awesome-forms-6f846a4ce57
