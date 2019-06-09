@@ -16,7 +16,7 @@ TODO ://
 
 #### Hooks + React Router interactions
 
-- surrounding a <button> with <Link> causes the <form onSubmit={handleSubmit}> to be overidden.
+- surrounding a `<button>` with `<Link>` causes the `<form onSubmit={handleSubmit}>` to be overidden.
 
 example:
 
