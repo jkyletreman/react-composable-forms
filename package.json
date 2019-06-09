@@ -21,7 +21,7 @@
     "predeploy": "yarn run build",
     "pages:deploy": "gh-pages -d build",
     "pages": "yarn run predeploy && yarn run pages:deploy",
-    "netlify:deploy": "yarn run build",
+    "netlify:deploy": "netlify deploy",
     "netlify": "yarn run predeploy && yarn run netlify:deploy"
   },
   "eslintConfig": {

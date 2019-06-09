@@ -1,15 +1,19 @@
-Simple Mobile First Responsive Form with Hooks
+## Simple Mobile First Form with Hooks
 
-Additional features:
+```sh
+TODO :// 
+    -> Implement Redirect if state is missing and user request different route then /
+```
+##### Additional features:
 
 - animations w/ React Spring
 
 [Netlify](https://www.freecodecamp.org/news/how-to-deploy-a-react-application-to-netlify-363b8a98a985/) Deployment Steps
 
-Deployment Issues
+#### Issues
     - [gh-pages](https://jkyletreman.github.io/react-composable-forms/) not finding js files 
 
-Hooks + React Router interactions
+#### Hooks + React Router interactions
 
 - surrounding a <button> with <Link> causes the <form onSubmit={handleSubmit}> to be overidden.
 
