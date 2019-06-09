@@ -9,3 +9,27 @@ Additional features:
 Deployment Issues
     - [gh-pages](https://jkyletreman.github.io/react-composable-forms/) not finding js files 
 
+Hooks + React Router interactions
+
+- surrounding a <button> with <Link> causes the <form onSubmit={handleSubmit}> to be overidden.
+
+example:
+
+```sh
+    # handleSubmit will not fire
+    <form onSubmit={handleSubmit}>
+     <div className="submit">
+        <Link to="/profile">
+          <button type="submit">Submit</button>
+        </Link>
+      </div>
+    </form>
+```
+```sh
+    # handleSubmit will fire
+    <form onSubmit={handleSubmit}>
+     <div className="submit">
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+```

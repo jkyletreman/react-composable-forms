@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./App.css";
 
 const UserProfileCard = props => (
@@ -10,10 +9,10 @@ const UserProfileCard = props => (
         <h3>{props.inputs.username}</h3>
       </div>
     </div>
-    <div className='submit'>
-      <Link to="/">
+    <div className="submit">
+      <form onSubmit={props.handleSubmit}>
         <button type="submit">Create My Profile!</button>
-      </Link>
+      </form>
     </div>
   </div>
 );

@@ -8,7 +8,16 @@ import UserProfileCard from "./UserProfileCard";
 import "./App.css";
 
 function App() {
+  const signup = inputs => {
+    alert(`User Created
+      Email: ${inputs.email},
+      Username: ${inputs.username},
+      Avatar: ${inputs.avatar}
+    `);
+  };
+
   const { location } = useRouter();
+  const { inputs, handleInputChange, handleSubmit } = useForm(signup); 
 
   const transitions = useTransition(
     location,
@@ -21,11 +30,8 @@ function App() {
     []
   );
 
-  const { inputs, handleInputChange, handleSubmit } = useForm();
-
   return (
     <div>
-      {/* <h1>Signup!</h1> */}
       <div className="container">
         {transitions.map(({ item, props, key }) => (
           <animated.div key={key} style={props} className="container">

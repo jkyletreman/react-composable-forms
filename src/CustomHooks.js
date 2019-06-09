@@ -13,15 +13,14 @@ const useRouter = () => {
 }
 
 // https://medium.com/@geeky_writer_/using-react-hooks-to-create-awesome-forms-6f846a4ce57
-
-const initialFormState = {}
-// callback - whenever the user submits the form.
+// callback - whenever the user submits the form --> optional?
 const useForm = callback => {
     // object of inputs, inputName: inputValue
-    const [ inputs, setInputs ] = useState(initialFormState);
+    const [ inputs, setInputs ] = useState({});
 
     // user submits form
     const handleSubmit = event => {
+        console.log('useForm --- handleSubmit');
         if (event) {
             event.preventDefault();
         };
@@ -30,6 +29,7 @@ const useForm = callback => {
 
     // user provides input
     const handleInputChange = event => {
+        console.log('useForm --- handleInputChange');
         /*
             If you need to access an event in an asynchronous way, 
             then you should call event.persist() at the beginning of the function. 
