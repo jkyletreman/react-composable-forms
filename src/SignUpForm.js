@@ -1,16 +1,17 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 // https://medium.com/@geeky_writer_/using-react-hooks-to-create-awesome-forms-6f846a4ce57
-import useMainForm from "./CustomHooks";
+import { useForm } from "./CustomHooks";
 
-const MainForm = props => {
+const SignUpForm = props => {
     // callback function
-    const signup = () => {
+    const confirmation = () => {
       alert(`User Created!
              Name: ${inputs.firstName}`);
     };
   
     // custom hook - takes callback as param
-    const { inputs, handleInputChange, handleSubmit } = useMainForm(signup);
+    const { inputs, handleInputChange, handleSubmit } = useForm(confirmation);
     
     return (
       <div className="container">
@@ -32,11 +33,13 @@ const MainForm = props => {
             </select>
           </div>
           <div className="submit">
-            <button type="submit" onClick={() => props.setForm('two')}>Next</button>
+            <Link to='/two'>
+              <button type="submit">Next</button>
+            </Link>
           </div>
         </form>
       </div>
     );
   };
 
-  export default MainForm;
+  export default SignUpForm;

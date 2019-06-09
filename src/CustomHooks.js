@@ -1,11 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { __RouterContext } from 'react-router-dom'
+
 /* 
     In order for React to recognize any custom hooks, 
         their name should start with “use”.
 */
 
+// NAvigation + Transitions https://codesandbox.io/embed/jp1wr1867w
+const useRouter = () => {
+  return useContext(__RouterContext)
+}
+
+
 // callback - whenever the user submits the form.
-const useMainForm = callback => {
+const useForm = callback => {
     // object of inputs, inputName: inputValue
     const [ inputs, setInputs ] = useState({});
 
@@ -39,6 +47,6 @@ const useMainForm = callback => {
     };
 };
 
-export default useMainForm;
+export { useForm, useRouter };
 
-// useMainForm --> https://medium.com/@geeky_writer_/using-react-hooks-to-create-awesome-forms-6f846a4ce57
+// useForm --> https://medium.com/@geeky_writer_/using-react-hooks-to-create-awesome-forms-6f846a4ce57
