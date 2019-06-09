@@ -1,48 +1,46 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useForm } from "./CustomHooks";
 import "./App.css";
 
 const faker = require("faker");
-const avatar = faker.image.avatar();
+const avatar = faker.image.avatar(); // https://api.adorable.io/avatars/285/abott@adorable.png
 
-const UserProfileForm = () => {
-  // callback function
-  const confirmation = () => {
-    alert(`User Created!
-               Avatar: ${inputs.avatar},
-               Nickname: ${inputs.avatar}
-        `);
-  };
-
-  // custom hook - takes callback as param
-  const { inputs, handleInputChange, handleSubmit } = useForm(confirmation);
-
-  return (
-    <div className="container">
-      <form onSubmit={handleSubmit}>
-        <div className="container margin">
-          <img src={inputs.avatar || avatar} alt="avatar" className="avatar" />
-        </div>
-        <div>
-          <label>Avatar url</label>
-          <input
-            type="text"
-            name="avatar"
-            value={inputs.avatar}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div className="submit">
-          <Link to="/">
-            <button type="submit" onSubmit={handleSubmit}>
-              Preview
-            </button>
-          </Link>
-        </div>
-      </form>
-    </div>
-  );
-};
+const UserProfileForm = props => (
+  <div className="container border">
+    <form onSubmit={props.handleSubmit}>
+      <div className="container margin">
+        <img
+          src={props.inputs.avatar || avatar}
+          alt="avatar"
+          className="avatar"
+        />
+      </div>
+      <div>
+        <label>Avatar Url</label>
+        <input
+          type="text"
+          name="avatar"
+          value={props.inputs.avatar}
+          onChange={props.handleInputChange}
+          placeholder={avatar}
+        />
+      </div>
+      <div>
+        <label>Username</label>
+        <input
+          text="text"
+          name="username"
+          value={props.inputs.username}
+          onChange={props.handleInputChange}
+        />
+      </div>
+      <div className="submit">
+        <Link to="/profile">
+          <button type="submit">Preview</button>
+        </Link>
+      </div>
+    </form>
+  </div>
+);
 
 export default UserProfileForm;

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import { useState, useContext } from 'react';
 import { __RouterContext } from 'react-router-dom'
 
 /* 
@@ -6,17 +6,19 @@ import { __RouterContext } from 'react-router-dom'
         their name should start with “use”.
 */
 
-// Navigation + Transitions https://codesandbox.io/embed/jp1wr1867w
+// Navigation + Transitions 
+// https://codesandbox.io/embed/jp1wr1867w
 const useRouter = () => {
   return useContext(__RouterContext)
 }
 
+// https://medium.com/@geeky_writer_/using-react-hooks-to-create-awesome-forms-6f846a4ce57
 
-// useForm --> https://medium.com/@geeky_writer_/using-react-hooks-to-create-awesome-forms-6f846a4ce57
+const initialFormState = {}
 // callback - whenever the user submits the form.
 const useForm = callback => {
     // object of inputs, inputName: inputValue
-    const [ inputs, setInputs ] = useState({});
+    const [ inputs, setInputs ] = useState(initialFormState);
 
     // user submits form
     const handleSubmit = event => {
