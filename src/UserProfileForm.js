@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useForm } from "./CustomHooks";
 import "./App.css";
 
-const faker = require('faker');
+const faker = require("faker");
 const avatar = faker.image.avatar();
 
 const UserProfileForm = () => {
@@ -21,8 +21,11 @@ const UserProfileForm = () => {
   return (
     <div className="container">
       <form onSubmit={handleSubmit}>
+        <div className="container margin">
+          <img src={inputs.avatar || avatar} alt="avatar" className="avatar" />
+        </div>
         <div>
-          <label>Avatar link</label>
+          <label>Avatar url</label>
           <input
             type="text"
             name="avatar"
@@ -30,12 +33,11 @@ const UserProfileForm = () => {
             onChange={handleInputChange}
           />
         </div>
-        <div className='container'>
-            <img src={inputs.avatar || avatar} alt="avatar" className="avatar"/>
-        </div>
-        <div className='submit'>
+        <div className="submit">
           <Link to="/">
-            <button type="submit" onSubmit={handleSubmit}>Preview</button>
+            <button type="submit" onSubmit={handleSubmit}>
+              Preview
+            </button>
           </Link>
         </div>
       </form>

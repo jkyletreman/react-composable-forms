@@ -21,6 +21,10 @@
   height: 100%;
 }
 
+.margin {
+  margin: 1.1rem;
+}
+
 .submit {
   display: flex;
   justify-content: center;
