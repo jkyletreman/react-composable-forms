@@ -1,13 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// https://medium.com/@geeky_writer_/using-react-hooks-to-create-awesome-forms-6f846a4ce57
 import { useForm } from "./CustomHooks";
 import "./App.css";
-const SignUpForm = () => {
+
+const faker = require('faker');
+
+const UserProfileForm = () => {
   // callback function
   const confirmation = () => {
     alert(`User Created!
-             Name: ${inputs.firstName}`);
+               Avatar: ${inputs.avatar},
+               Nickname: ${inputs.avatar}
+        `);
   };
 
   // custom hook - takes callback as param
@@ -17,26 +21,20 @@ const SignUpForm = () => {
     <div className="container">
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Email</label>
+          <label>Avatar link</label>
           <input
             type="text"
-            name="email"
-            value={inputs.email}
+            name="avatar"
+            value={inputs.avatar}
             onChange={handleInputChange}
           />
         </div>
-        <div>
-          <label>Password</label>
-          <input
-            type="text"
-            name="password"
-            value={inputs.password}
-            onChange={handleInputChange}
-          />
+        <div className='container'>
+            <img src={inputs.avatar || faker.image.avatar()} alt="avatar" className="avatar"/>
         </div>
-        <div className="submit">
-          <Link to="/two">
-            <button type="submit">Next</button>
+        <div className='submit'>
+          <Link to="/">
+            <button type="submit" onSubmit={handleSubmit}>Preview</button>
           </Link>
         </div>
       </form>
@@ -44,4 +42,4 @@ const SignUpForm = () => {
   );
 };
 
-export default SignUpForm;
+export default UserProfileForm;

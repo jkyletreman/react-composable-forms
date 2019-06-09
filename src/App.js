@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Switch, Route, Link } from "react-router-dom";
 import { useTransition, animated } from "react-spring";
-import { useRouter, useForm } from "./CustomHooks";
+import { useRouter } from "./CustomHooks";
 import SignUpForm from "./SignUpForm";
+import UserProfileForm from "./UserProfileForm";
 import "./App.css";
 
 function App() {
@@ -14,20 +15,21 @@ function App() {
     leave: { opacity: 0, transform: "translate3d(-50%,0,0)" }
   });
 
-  return transitions.map(({ item, props, key }) => (
-    <animated.div key={key} style={props}>
-      <Switch location={item}>
-        <Route path="/" exact component={SignUpForm} />
-        <Route path="/two" component={SecondForm} />
-      </Switch>
-    </animated.div>
-  ));
+  return (
+    <div>
+      {/* <h1>Signup!</h1> */}
+      <div className="container">
+        {transitions.map(({ item, props, key }) => (
+          <animated.div key={key} style={props} className="container border">
+            <Switch location={item}>
+              <Route path="/" exact component={SignUpForm} />
+              <Route path="/two" component={UserProfileForm} />
+            </Switch>
+          </animated.div>
+        ))}
+      </div>
+    </div>
+  );
 }
-
-const SecondForm = () => (
-  <Link to="/">
-    <button type="submit" />
-  </Link>
-);
 
 export default App;
