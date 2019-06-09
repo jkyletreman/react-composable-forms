@@ -4,6 +4,7 @@ import { useForm } from "./CustomHooks";
 import "./App.css";
 
 const faker = require('faker');
+const avatar = faker.image.avatar();
 
 const UserProfileForm = () => {
   // callback function
@@ -30,7 +31,7 @@ const UserProfileForm = () => {
           />
         </div>
         <div className='container'>
-            <img src={inputs.avatar || faker.image.avatar()} alt="avatar" className="avatar"/>
+            <img src={inputs.avatar || avatar} alt="avatar" className="avatar"/>
         </div>
         <div className='submit'>
           <Link to="/">
